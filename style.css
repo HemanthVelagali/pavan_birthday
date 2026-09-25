@@ -96,18 +96,20 @@ body {
 /* Slide Deck Wrapper - FULL SCREEN */
 .presentation-container {
   width: 100vw;
-  min-height: 100vh;
-  min-height: 100dvh;
   height: 100vh;
-  height: 100dvh;
-  position: relative;
+  min-height: 100vh;
+  max-width: 100vw;
+  aspect-ratio: auto;
   border-radius: 0;
   box-shadow: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  inset: 0;
   margin: 0;
   padding: 0;
+  z-index: 1;
 }
 
 /* Slide Item */
