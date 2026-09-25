@@ -1,0 +1,861 @@
+/* ==========================================================================
+   Cute Shinchan Birthday Surprise - Canva Inspired Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&family=Sniglet:wght@800&family=Mali:wght@600;700&family=Playfair+Display:ital,wght@1,600;1,700&family=Bangers&display=swap');
+
+:root {
+  --gingham-red: #D32F2F;
+  --gingham-dark: #B71C1C;
+  --gingham-pink: #FFCDD2;
+  --cream-bg: #FCF8F2;
+  --card-border: #6B1E1E;
+  --text-maroon: #631818;
+  --text-dark: #371414;
+  --btn-red-start: #E53935;
+  --btn-red-end: #B71C1C;
+  --shadow-warm: rgba(107, 30, 30, 0.15);
+  --avengers-blue: #0288D1;
+  --avengers-gold: #FFB300;
+  --font-title: 'Sniglet', 'Fredoka', cursive, sans-serif;
+  --font-body: 'Fredoka', sans-serif;
+  --font-script: 'Playfair Display', serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-comic: 'Bangers', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #201717;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  overflow-x: hidden;
+  color: var(--text-dark);
+}
+
+.dual-gif-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dual-gif-wrapper .shinchan-img {
+  max-height: 200px;
+  max-width: 48%;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .dual-gif-wrapper {
+    gap: 8px;
+  }
+  .dual-gif-wrapper .shinchan-img {
+    max-height: 160px;
+    max-width: 48%;
+  }
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-maroon);
+  border: 2px solid var(--text-maroon);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: #FFF;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Slide Deck Wrapper */
+.presentation-container {
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 16 / 9.6;
+  min-height: 480px;
+  position: relative;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .presentation-container {
+    aspect-ratio: auto;
+    min-height: 580px;
+    border-radius: 20px;
+  }
+}
+
+/* Slide Item */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96) translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   Canva Gingham Checkered Frame & Inner Card
+   ========================================================================== */
+
+.gingham-frame {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  /* Authentic Red & White Gingham Tablecloth Pattern */
+  background-color: #FFFFFF;
+  background-image: 
+    linear-gradient(90deg, rgba(211, 47, 47, 0.45) 50%, transparent 50%),
+    linear-gradient(rgba(211, 47, 47, 0.45) 50%, transparent 50%);
+  background-size: 26px 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .gingham-frame {
+    padding: 10px;
+    background-size: 20px 20px;
+  }
+}
+
+.inner-card {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cream-bg);
+  border-radius: 24px;
+  border: 3px solid var(--card-border);
+  box-shadow: 
+    inset 0 0 20px rgba(107, 30, 30, 0.05),
+    0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scalloped / Organic Wavy Border Illusion inside card */
+.inner-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1.5px dashed rgba(107, 30, 30, 0.35);
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+/* Background subtle doodle accents */
+.bg-doodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: radial-gradient(var(--card-border) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ==========================================================================
+   Typography & Headers
+   ========================================================================== */
+
+.slide-title-arched {
+  font-family: var(--font-title);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text-maroon);
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  text-shadow: 1px 2px 0px rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 2;
+  transform: perspective(300px) rotateX(4deg);
+}
+
+@media (max-width: 600px) {
+  .slide-title-arched {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+}
+
+.slide-subtitle {
+  font-family: var(--font-title);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-maroon);
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .slide-subtitle {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+}
+
+/* ==========================================================================
+   Center GIF and Character Presentation
+   ========================================================================== */
+
+.gif-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  max-height: 260px;
+  margin: 4px 0;
+}
+
+.shinchan-img {
+  max-height: 230px;
+  max-width: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(107, 30, 30, 0.15));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: float-gentle 3.5s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.crying-animation {
+  animation: shake-tantrum 0.4s infinite alternate;
+}
+
+@keyframes shake-tantrum {
+  0% { transform: rotate(-3deg) translateY(0); }
+  100% { transform: rotate(3deg) translateY(-5px); }
+}
+
+.cunning-animation {
+  animation: blush-wiggle 3s ease-in-out infinite;
+}
+
+@keyframes blush-wiggle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.04) rotate(2deg); }
+}
+
+/* ==========================================================================
+   Action Buttons (Glossy Cherry Red Pill)
+   ========================================================================== */
+
+.btn-group {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 500px) {
+  .btn-group {
+    gap: 14px;
+  }
+}
+
+.btn-red-pill {
+  position: relative;
+  background: linear-gradient(180deg, var(--btn-red-start) 0%, var(--btn-red-end) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 42px;
+  border-radius: 9999px;
+  border: 3.5px solid #FFFFFF;
+  box-shadow: 
+    0 6px 14px rgba(183, 28, 28, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  user-select: none;
+}
+
+/* Glossy highlight line on top */
+.btn-red-pill::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 14%;
+  right: 14%;
+  height: 7px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 9999px;
+}
+
+.btn-red-pill:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 
+    0 10px 20px rgba(183, 28, 28, 0.55),
+    0 3px 6px rgba(0, 0, 0, 0.25),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-red-pill:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 
+    0 3px 6px rgba(183, 28, 28, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+  .btn-red-pill {
+    font-size: 20px;
+    padding: 8px 30px;
+  }
+}
+
+/* ==========================================================================
+   Slide 4: Interactive Gift Boxes
+   ========================================================================== */
+
+.gifts-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin: 12px 0 16px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .gifts-row {
+    gap: 14px;
+  }
+}
+
+.gift-box-wrapper {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gift-box-wrapper:hover {
+  transform: translateY(-10px) scale(1.08);
+}
+
+.gift-box-wrapper:hover .gift-box-svg {
+  filter: drop-shadow(0 15px 20px rgba(229, 57, 53, 0.35));
+}
+
+.gift-box-svg {
+  width: 120px;
+  height: 120px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 8px 12px rgba(107, 30, 30, 0.2));
+}
+
+@media (max-width: 600px) {
+  .gift-box-svg {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+.gift-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-maroon);
+  background: #FFF;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-top: 6px;
+  border: 1.5px solid var(--text-maroon);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Shake animation on gifts */
+.gift-bounce-1 { animation: gift-wobble 3.2s infinite ease-in-out; }
+.gift-bounce-2 { animation: gift-wobble 3.2s infinite 0.6s ease-in-out; }
+.gift-bounce-3 { animation: gift-wobble 3.2s infinite 1.2s ease-in-out; }
+
+@keyframes gift-wobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-3deg); }
+  75% { transform: translateY(-5px) rotate(3deg); }
+}
+
+.next-arrow-btn {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--text-maroon);
+  color: #FFF;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  border: 2px solid #FFF;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.next-arrow-btn:hover {
+  transform: translateY(-50%) scale(1.15);
+  background: var(--btn-red-start);
+}
+
+/* ==========================================================================
+   Slide 5 & Slide 6: Grand Finale - Retro Waves & Avengers Wishes
+   ========================================================================== */
+
+.slide-waves-theme {
+  background: #FDF9F3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  border: 3px solid var(--card-border);
+  border-radius: 24px;
+}
+
+/* Retro decorative waves border */
+.wavy-corner-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.wavy-corner-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.celebration-header-box {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
+}
+
+.happy-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--text-maroon);
+  text-transform: uppercase;
+}
+
+.birthday-main {
+  font-family: var(--font-script);
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--text-maroon);
+  line-height: 1.1;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 600px) {
+  .birthday-main {
+    font-size: 34px;
+  }
+}
+
+.wish-paragraph {
+  font-family: var(--font-handwriting);
+  font-size: 22px;
+  color: #4A1A1A;
+  max-width: 540px;
+  margin: 6px auto;
+  line-height: 1.3;
+}
+
+.name-badge-banner {
+  display: inline-block;
+  background: var(--text-maroon);
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 22px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(99, 24, 24, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.name-badge-banner:hover {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   THE AVENGERS WISHES SHOWCASE
+   ========================================================================== */
+
+.avengers-showcase {
+  background: linear-gradient(135deg, #0d131f 0%, #17263c 100%);
+  border: 3.5px solid var(--avengers-gold);
+  border-radius: 20px;
+  padding: 18px;
+  margin: 16px 0;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(255, 179, 0, 0.25);
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.avengers-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.avengers-badge {
+  background: #E53935;
+  color: #FFFFFF;
+  font-family: var(--font-comic);
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  padding: 4px 16px;
+  border-radius: 8px;
+  border: 2px solid #FFF;
+  text-shadow: 1px 1px 0 #000;
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.5);
+}
+
+.avengers-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .avengers-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Framed Avengers Photo */
+.avengers-photo-frame {
+  position: relative;
+  background: #FFFFFF;
+  padding: 10px 10px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.avengers-photo-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.avengers-photo-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.photo-tape {
+  position: absolute;
+  top: -10px;
+  left: 35%;
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 224, 130, 0.85);
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 2px;
+}
+
+.photo-caption {
+  font-family: var(--font-handwriting);
+  font-size: 22px;
+  color: #1A1A1A;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Individual superhero quote bubbles */
+.avengers-wishes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-quote-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--avengers-gold);
+  border-radius: 0 12px 12px 0;
+  padding: 8px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.hero-quote-card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateX(4px);
+  border-left-color: #FF5252;
+}
+
+.hero-avatar {
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.hero-info {
+  flex: 1;
+}
+
+.hero-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--avengers-gold);
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.hero-quote {
+  font-size: 13px;
+  line-height: 1.3;
+  color: #E0E0E0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Slide 6: Birthday Cake & Interactive Candle Blow
+   ========================================================================== */
+
+.cake-celebration-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin: 10px 0;
+}
+
+.cake-container {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+.cake-container:hover {
+  transform: scale(1.04);
+}
+
+.flame-element {
+  transform-origin: center bottom;
+  animation: flicker 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 6px #FFA000); }
+  50% { transform: scale(1.15) rotate(2deg); filter: drop-shadow(0 0 14px #FFD54F); }
+  100% { transform: scale(0.95) rotate(-1deg); filter: drop-shadow(0 0 8px #FF6F00); }
+}
+
+.flame-blown {
+  display: none !important;
+}
+
+.smoke-puff {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: rise-smoke 1.2s forwards ease-out;
+}
+
+@keyframes rise-smoke {
+  0% { opacity: 0.9; transform: translateX(-50%) translateY(0) scale(0.6); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-60px) scale(2); }
+}
+
+.candle-instruction-badge {
+  background: #FFF;
+  border: 2px solid var(--text-maroon);
+  color: var(--text-maroon);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  animation: bounce-subtle 2s infinite ease-in-out;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ==========================================================================
+   Separate Cinema Video Player
+   ========================================================================== */
+
+.theater-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 8px auto 14px;
+  background: linear-gradient(180deg, #1A1111 0%, #0D0808 100%);
+  border: 3.5px solid var(--avengers-gold);
+  border-radius: 22px;
+  padding: 12px;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 179, 0, 0.35);
+  position: relative;
+  z-index: 2;
+}
+
+.theater-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 8px;
+  border-bottom: 1.5px solid rgba(255, 179, 0, 0.3);
+  margin-bottom: 10px;
+}
+
+.theater-title {
+  font-family: var(--font-comic);
+  color: var(--avengers-gold);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.theater-badge {
+  background: #E53935;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.video-card-wrapper {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.final-birthday-video {
+  width: 100%;
+  max-height: 420px;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+
+
+

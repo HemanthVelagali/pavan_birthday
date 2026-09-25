@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#2a3b5c" />
+      <stop offset="60%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a10" />
+    </radialGradient>
+
+    <!-- Gold Foil Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="35%" stop-color="#FFB300" />
+      <stop offset="70%" stop-color="#FFF8E1" />
+      <stop offset="100%" stop-color="#FF8F00" />
+    </linearGradient>
+
+    <!-- Arc Reactor Glow -->
+    <radialGradient id="arcGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <!-- Comic Halftone Pattern -->
+    <pattern id="halftone" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="2.2" fill="rgba(255, 255, 255, 0.05)" />
+    </pattern>
+
+    <!-- Avengers Banner Gradient -->
+    <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B71C1C" />
+      <stop offset="50%" stop-color="#E53935" />
+      <stop offset="100%" stop-color="#B71C1C" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGlow)" />
+  <rect width="800" height="600" fill="url(#halftone)" />
+
+  <!-- Confetti and Streamers -->
+  <g opacity="0.8">
+    <path d="M50 80 Q100 40 150 100 T250 80" fill="none" stroke="#FF4081" stroke-width="4" stroke-dasharray="8 6" />
+    <path d="M550 60 Q650 120 750 70" fill="none" stroke="#00E5FF" stroke-width="4" stroke-dasharray="10 6" />
+    <path d="M80 500 Q180 440 220 520" fill="none" stroke="#FFD700" stroke-width="3" stroke-dasharray="6 4" />
+    <circle cx="90" cy="140" r="8" fill="#FF5252" />
+    <circle cx="720" cy="180" r="7" fill="#FFEB3B" />
+    <polygon points="680,100 686,114 700,114 688,122 692,136 680,126 668,136 672,122 660,114 674,114" fill="#FFB300" />
+    <polygon points="120,440 125,452 138,452 127,459 131,471 120,463 109,471 113,459 102,452 115,452" fill="#00E5FF" />
+    <polygon points="710,480 715,492 728,492 717,499 721,511 710,503 699,511 703,499 692,492 705,492" fill="#E040FB" />
+  </g>
+
+  <!-- Floating Birthday Balloons -->
+  <g>
+    <!-- Red Balloon -->
+    <path d="M100 200 C80 160 80 120 120 120 C160 120 160 160 140 200 C128 220 112 220 100 200 Z" fill="#E53935" />
+    <path d="M116 215 L120 222 L124 215 Z" fill="#C62828" />
+    <path d="M120 222 Q125 260 115 300" fill="none" stroke="#999" stroke-width="1.5" />
+    <ellipse cx="108" cy="145" rx="6" ry="12" fill="#FFA4A2" opacity="0.6" transform="rotate(-25 108 145)" />
+
+    <!-- Gold Balloon -->
+    <path d="M660 220 C640 180 640 140 680 140 C720 140 720 180 700 220 C688 240 672 240 660 220 Z" fill="#FFC107" />
+    <path d="M676 235 L680 242 L684 235 Z" fill="#FFA000" />
+    <path d="M680 242 Q675 280 685 320" fill="none" stroke="#999" stroke-width="1.5" />
+    <ellipse cx="668" cy="165" rx="6" ry="12" fill="#FFF9C4" opacity="0.7" transform="rotate(-25 668 165)" />
+
+    <!-- Blue Balloon -->
+    <path d="M690 140 C675 105 675 75 705 75 C735 75 735 105 720 140 C710 155 700 155 690 140 Z" fill="#1E88E5" />
+    <path d="M702 150 L705 156 L708 150 Z" fill="#1565C0" />
+    <path d="M705 156 Q712 195 700 240" fill="none" stroke="#999" stroke-width="1.5" />
+  </g>
+
+  <!-- Big Central Giant Avengers "A" Logo with metallic bevel -->
+  <g transform="translate(400, 240) scale(1.15)">
+    <!-- Glow Ring -->
+    <circle cx="0" cy="0" r="145" fill="none" stroke="rgba(0, 229, 255, 0.2)" stroke-width="16" />
+    <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad)" stroke-width="12" filter="drop-shadow(0 0 15px rgba(255,179,0,0.5))" />
+    
+    <!-- Avengers Arrow & 'A' -->
+    <!-- Shadow -->
+    <path d="M-15 -105 L-55 50 L-25 50 L-10 10 L30 10 L30 -20 L-5 -20 L-2 -50 L15 -50 L70 50 L105 50 L35 -105 Z" fill="#0A0F1D" opacity="0.5" />
+    
+    <!-- Main A Body -->
+    <path d="M-15 -100 L-55 55 L-25 55 L-10 15 L35 15 L35 -15 L-5 -15 L-2 -45 L20 -45 L70 55 L105 55 L35 -100 Z" fill="url(#goldGrad)" />
+    
+    <!-- Arrow Head Cut -->
+    <polygon points="15,15 15,-15 110,-15 110,-35 155,0 110,35 110,15" fill="#E53935" stroke="#FFFFFF" stroke-width="3" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.5))" />
+
+    <!-- Cute Birthday Cone Hat on top of the 'A' -->
+    <polygon points="10,-100 -20,-160 30,-100" fill="#FF4081" stroke="#FFF" stroke-width="2" />
+    <circle cx="-20" cy="-160" r="8" fill="#FFEB3B" />
+    <!-- Hat stripes -->
+    <path d="M-5,-115 L18,-115" stroke="#FFEB3B" stroke-width="4" />
+    <path d="M-12,-135 L6,-135" stroke="#00E5FF" stroke-width="4" />
+  </g>
+
+  <!-- Superheroes Silhouettes / Stylized Busts assembling around -->
+  <!-- Iron Man (Left) -->
+  <g transform="translate(180, 290)">
+    <!-- Helmet Base -->
+    <path d="M-40 0 C-45 -50 45 -50 40 0 C38 45 25 65 0 75 C-25 65 -38 45 -40 0 Z" fill="#D32F2F" stroke="#B71C1C" stroke-width="3" />
+    <!-- Gold Face Plate -->
+    <path d="M-28 -10 C-30 -35 30 -35 28 -10 C25 25 18 55 0 65 C-18 55 -25 25 -28 -10 Z" fill="url(#goldGrad)" />
+    <!-- Glowing Blue Eyes -->
+    <rect x="-22" y="5" width="14" height="4" rx="2" fill="#FFFFFF" filter="drop-shadow(0 0 5px #00E5FF)" />
+    <rect x="8" y="5" width="14" height="4" rx="2" fill="#FFFFFF" filter="drop-shadow(0 0 5px #00E5FF)" />
+    <!-- Mini Party Hat on Iron Man -->
+    <polygon points="-8,-45 0,-85 18,-45" fill="#4CAF50" stroke="#FFF" stroke-width="1.5" />
+    <circle cx="0" cy="-85" r="5" fill="#FFEB3B" />
+  </g>
+
+  <!-- Captain America Shield (Right) -->
+  <g transform="translate(620, 290)">
+    <!-- Outer Red Ring -->
+    <circle cx="0" cy="0" r="55" fill="#D32F2F" stroke="#B71C1C" stroke-width="2" />
+    <!-- White Ring -->
+    <circle cx="0" cy="0" r="42" fill="#ECEFF1" />
+    <!-- Inner Red Ring -->
+    <circle cx="0" cy="0" r="28" fill="#D32F2F" />
+    <!-- Blue Center -->
+    <circle cx="0" cy="0" r="16" fill="#1976D2" />
+    <!-- Star -->
+    <polygon points="0,-14 4,-4 15,-4 7,3 10,13 0,7 -10,13 -7,3 -15,-4 -4,-4" fill="#FFFFFF" />
+    <!-- Mini Party Hat on Shield -->
+    <polygon points="-5,-52 10,-88 25,-48" fill="#FF9800" stroke="#FFF" stroke-width="1.5" />
+    <circle cx="10" cy="-88" r="5" fill="#E91E63" />
+  </g>
+
+  <!-- Thor's Hammer Mjolnir with Lightning Sparks (Bottom Left) -->
+  <g transform="translate(130, 420)">
+    <rect x="-35" y="-20" width="70" height="40" rx="6" fill="#78909C" stroke="#455A64" stroke-width="3" />
+    <rect x="-6" y="20" width="12" height="45" rx="3" fill="#8D6E63" stroke="#5D4037" stroke-width="2" />
+    <!-- Lightning zap -->
+    <path d="M-40 -10 L-60 -25 L-45 -22 L-70 -45" fill="none" stroke="#00E5FF" stroke-width="3" filter="drop-shadow(0 0 4px #00E5FF)" />
+  </g>
+
+  <!-- Spider-Man Web & Mask (Bottom Right) -->
+  <g transform="translate(670, 420)">
+    <path d="M0 -30 Q-25 0 0 35 Q25 0 0 -30 Z" fill="#D32F2F" stroke="#B71C1C" stroke-width="2" />
+    <!-- Big Expressive Spidey Eyes -->
+    <path d="M-3 -10 Q-18 -8 -15 8 Q-5 12 -3 -10 Z" fill="#FFFFFF" stroke="#111" stroke-width="2" />
+    <path d="M3 -10 Q18 -8 15 8 Q5 12 3 -10 Z" fill="#FFFFFF" stroke="#111" stroke-width="2" />
+    <!-- Web string -->
+    <path d="M0 -30 L0 -70" stroke="#EEE" stroke-width="2" stroke-dasharray="3 3" />
+  </g>
+
+  <!-- Hulk Fist Punching Up (Center Bottom) -->
+  <g transform="translate(400, 460)">
+    <path d="M-25 20 C-30 -10 30 -10 25 20 C20 40 -20 40 -25 20 Z" fill="#388E3C" stroke="#1B5E20" stroke-width="3" />
+    <circle cx="-15" cy="5" r="7" fill="#4CAF50" />
+    <circle cx="0" cy="0" r="7.5" fill="#4CAF50" />
+    <circle cx="15" cy="5" r="7" fill="#4CAF50" />
+  </g>
+
+  <!-- Celebratory Banner at Bottom -->
+  <g transform="translate(400, 520)">
+    <!-- Ribbon Shadow -->
+    <path d="M-330 20 L-310 -25 L310 -25 L330 20 L270 12 L-270 12 Z" fill="#7F0000" />
+    
+    <!-- Main Ribbon -->
+    <rect x="-300" y="-30" width="600" height="55" rx="10" fill="url(#bannerGrad)" stroke="#FFE082" stroke-width="3.5" filter="drop-shadow(0 8px 16px rgba(0,0,0,0.6))" />
+    
+    <!-- Ribbon Ends (Fold effect) -->
+    <polygon points="-300,-15 -345,-30 -335,0 -345,30 -300,15" fill="#C62828" stroke="#FFE082" stroke-width="2" />
+    <polygon points="300,-15 345,-30 335,0 345,30 300,15" fill="#C62828" stroke="#FFE082" stroke-width="2" />
+
+    <!-- Banner Text -->
+    <text x="0" y="8" font-family="'Impact', 'Bangers', sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="2" filter="drop-shadow(2px 2px 0px #000)">
+      HAPPY BIRTHDAY FROM THE AVENGERS!
+    </text>
+  </g>
+
+  <!-- Golden Stars & Sparkles -->
+  <g fill="#FFD54F">
+    <circle cx="280" cy="120" r="4" />
+    <circle cx="520" cy="120" r="4" />
+    <circle cx="220" cy="220" r="3" />
+    <circle cx="580" cy="220" r="3" />
+    <polygon points="400,60 405,72 418,72 407,80 411,92 400,84 389,92 393,80 382,72 395,72" />
+  </g>
+</svg>

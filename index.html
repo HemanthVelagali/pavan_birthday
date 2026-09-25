@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Shinchan Birthday Surprise! 💌🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+</head>
+<body>
+
+  <!-- Audio Elements Preloaded -->
+  <audio id="theme-audio" src="meme1.m4a" loop preload="auto"></audio>
+  <audio id="faah-audio" src="faaah.mp3" preload="auto"></audio>
+  <audio id="birthday-audio" src="birthday.weba" loop preload="auto"></audio>
+
+  <!-- Main Presentation Container (Conditional If/Else Branching) -->
+  <main class="presentation-container">
+
+    <!-- ====================================================================
+         SLIDE 1: The Surprise Teaser (Do you wanna see it?)
+         ==================================================================== -->
+    <section class="slide active" id="slide-1" data-slide="1">
+      <div class="gingham-frame">
+        <div class="inner-card">
+          <div class="bg-doodles"></div>
+          
+          <h1 class="slide-title-arched">I have made something for you</h1>
+
+          <div class="gif-wrapper">
+            <img src="./shinchan.gif" alt="Shinchan Happy Dance" class="shinchan-img">
+          </div>
+
+          <div class="card-bottom-content">
+            <p class="slide-subtitle">Do you wanna see it?</p>
+            <div class="btn-group">
+              <button class="btn-red-pill" id="s1-yes-btn">YES</button>
+              <button class="btn-red-pill" id="s1-no-btn">NO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 2: HOW DARE YOU!? (User clicked NO -> cry.gif + cry eyes.gif + faah sound)
+         ==================================================================== -->
+    <section class="slide" id="slide-2" data-slide="2">
+      <div class="gingham-frame">
+        <div class="inner-card">
+          <div class="bg-doodles"></div>
+
+          <h2 class="slide-title-arched" style="color: #B71C1C; transform: scale(1.05);">HOW DARE YOU!?</h2>
+
+          <div class="gif-wrapper dual-gif-wrapper">
+            <img src="./cry.gif" alt="Shinchan Crying Tantrum" class="shinchan-img crying-animation">
+            <img src="./cry%20eyes.gif" alt="Shinchan Crying Eyes" class="shinchan-img crying-animation">
+          </div>
+
+          <div class="card-bottom-content">
+            <div class="btn-group" style="margin-top: 10px;">
+              <button class="btn-red-pill" id="s2-tryagain-btn">TRY AGAIN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 3: Are you really excited? (Double YES buttons!)
+         ==================================================================== -->
+    <section class="slide" id="slide-3" data-slide="3">
+      <div class="gingham-frame">
+        <div class="inner-card">
+          <div class="bg-doodles"></div>
+
+          <h2 class="slide-title-arched">Are you really excited?</h2>
+
+          <div class="gif-wrapper">
+            <img src="./cunning.gif" alt="Shinchan Cunning Smile" class="shinchan-img cunning-animation">
+          </div>
+
+          <div class="card-bottom-content">
+            <div class="btn-group">
+              <button class="btn-red-pill s3-yes-btn" id="s3-yes-1">YES</button>
+              <button class="btn-red-pill s3-yes-btn" id="s3-yes-2">YES</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 4: Interactive Gift Boxes
+         ==================================================================== -->
+    <section class="slide" id="slide-4" data-slide="4">
+      <div class="gingham-frame">
+        <div class="inner-card">
+          <div class="bg-doodles"></div>
+
+          <h2 class="slide-title-arched">Each gift has something for you..</h2>
+
+          <div class="gifts-row">
+            <div class="gift-box-wrapper gift-bounce-1" data-gift="1">
+              <img src="assets/gift_box.svg" alt="Gift 1" class="gift-box-svg">
+              <span class="gift-label">Gift #1 🎁</span>
+            </div>
+
+            <div class="gift-box-wrapper gift-bounce-2" data-gift="2">
+              <img src="assets/gift_box.svg" alt="Gift 2" class="gift-box-svg">
+              <span class="gift-label">Gift #2 ✨</span>
+            </div>
+
+            <div class="gift-box-wrapper gift-bounce-3" data-gift="3">
+              <img src="assets/gift_box.svg" alt="Gift 3" class="gift-box-svg">
+              <span class="gift-label">Gift #3 🌟</span>
+            </div>
+          </div>
+
+          <div class="card-bottom-content">
+            <p class="slide-subtitle" style="letter-spacing: 2px;">CLICK ON THE GIFTS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 5: Avengers Wishes & Birthday Card (Plays Birthday Audio)
+         ==================================================================== -->
+    <section class="slide" id="slide-5" data-slide="5">
+      <div class="slide-waves-theme">
+        <!-- Decorative Waves -->
+        <svg class="wavy-corner-top-left" viewBox="0 0 200 200">
+          <path d="M0 0 L160 0 C120 40 140 100 80 120 C40 130 20 160 0 180 Z" fill="#6B1E1E" opacity="0.85" />
+          <path d="M0 0 L120 0 C90 30 100 80 50 100 C20 110 10 140 0 150 Z" fill="#E53935" opacity="0.6" />
+        </svg>
+
+        <svg class="wavy-corner-bottom-right" viewBox="0 0 200 200">
+          <path d="M200 200 L40 200 C80 160 60 100 120 80 C160 70 180 40 200 20 Z" fill="#6B1E1E" opacity="0.85" />
+          <path d="M200 200 L80 200 C110 170 100 120 150 100 C180 90 190 60 200 50 Z" fill="#E53935" opacity="0.6" />
+        </svg>
+
+        <!-- Slide 5 Header -->
+        <div class="celebration-header-box">
+          <span class="happy-sub">✨ HAPPY ✨</span>
+          <h2 class="birthday-main">Birthday</h2>
+          <p class="wish-paragraph">
+            "Happy birthday! Wishing you a little bit of happiness, love, laughter, and joy today & always."
+          </p>
+          <div class="name-badge-banner" id="recipient-badge">
+            <span id="display-name">Pavan</span> 🎂
+          </div>
+        </div>
+
+        <!-- AVENGERS WISHES SHOWCASE -->
+        <div class="avengers-showcase">
+          <div class="avengers-title-bar">
+            <span class="avengers-badge">💥 AVENGERS ASSEMBLE 💥</span>
+            <span style="font-size: 14px; color: #FFD54F; font-weight: 600;">Special Mission: Celebrate Pavan!</span>
+          </div>
+
+          <div class="avengers-card-grid">
+            <!-- Left: Pavan's Birthday Polaroid Photo Card -->
+            <div class="avengers-photo-frame">
+              <div class="photo-tape"></div>
+              <img src="assets/pawan_birthday.png" alt="Happy Birthday Pavan!" id="avengers-main-img" class="avengers-photo-img" style="aspect-ratio: auto; max-height: 340px; object-fit: contain;">
+              <p class="photo-caption" id="photo-caption-text">Happy Birthday Pavan! 🎉</p>
+              
+              <div style="text-align: center; margin-top: 8px;">
+                <input type="file" id="user-photo-input" accept="image/*" style="display: none;">
+                <button class="icon-btn" id="upload-photo-btn" style="margin: 0 auto; font-size: 12px; padding: 4px 12px;">
+                  📷 Change Photo
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Superhero Wishes List -->
+            <div class="avengers-wishes-list">
+              <!-- Iron Man -->
+              <div class="hero-quote-card" data-hero="ironman">
+                <div class="hero-avatar">🤖</div>
+                <div class="hero-info">
+                  <div class="hero-name">TONY STARK / IRON MAN</div>
+                  <div class="hero-quote">"I love you 3000! JARVIS send homie 3000 reels and make sure he reacts to each one of them"</div>
+                </div>
+              </div>
+
+              <!-- Captain America -->
+              <div class="hero-quote-card" data-hero="captain">
+                <div class="hero-avatar">🛡️</div>
+                <div class="hero-info">
+                  <div class="hero-name">STEVE ROGERS / CAPTAIN AMERICA</div>
+                  <div class="hero-quote">"I could celebrate your birthday all day! Stay brave, stay kind, and never stop being amazing."</div>
+                </div>
+              </div>
+
+              <!-- Thor -->
+              <div class="hero-quote-card" data-hero="thor">
+                <div class="hero-avatar">⚡</div>
+                <div class="hero-info">
+                  <div class="hero-name">THOR / GOD OF THUNDER</div>
+                  <div class="hero-quote">"ANOTHER YEAR OF GLORY! May your feast be bountiful, your cake delicious, and your joy worthy of Valhalla!"</div>
+                </div>
+              </div>
+
+              <!-- Spider-Man -->
+              <div class="hero-quote-card" data-hero="spiderman">
+                <div class="hero-avatar">🕷️</div>
+                <div class="hero-info">
+                  <div class="hero-name">PETER PARKER / SPIDER-MAN</div>
+                  <div class="hero-quote">"Friendly neighborhood Spidey swinging by to wish you the most super-powered, fun-filled birthday ever!"</div>
+                </div>
+              </div>
+
+              <!-- Hulk -->
+              <div class="hero-quote-card" data-hero="hulk">
+                <div class="hero-avatar">💚</div>
+                <div class="hero-info">
+                  <div class="hero-name">THE INCREDIBLE HULK</div>
+                  <div class="hero-quote">"HULK PROMISE NOT SMASH PRESENTS! HULK CELEBRATE YOU! HAPPY BIRTHDAY!"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button to proceed to Final Video Page -->
+        <div style="text-align: center; margin-top: 12px; margin-bottom: 12px; z-index: 5;">
+          <button class="btn-red-pill" id="s5-next-btn" style="font-size: 18px; padding: 10px 32px;">
+            SEE FINAL SPECIAL WISH 🎬🍿 ›
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 6: THE FINAL PAGE - Separate Cinema Video Player & Cake
+         ==================================================================== -->
+    <section class="slide" id="slide-6" data-slide="6">
+      <div class="slide-waves-theme">
+        <svg class="wavy-corner-top-left" viewBox="0 0 200 200">
+          <path d="M0 0 L160 0 C120 40 140 100 80 120 C40 130 20 160 0 180 Z" fill="#6B1E1E" opacity="0.85" />
+        </svg>
+
+        <div class="celebration-header-box">
+          <h2 class="slide-title-arched" style="font-size: 34px; margin-bottom: 2px;">
+            SPECIAL BIRTHDAY WISH FOR PAVAN! 🎬🔥
+          </h2>
+          <p class="wish-paragraph" style="font-size: 18px;">
+            Wait for it... direct from Balayya &amp; friends! 🤣🎂
+          </p>
+        </div>
+
+        <!-- SEPARATE CINEMA THEATER VIDEO PLAYER -->
+        <div class="theater-container">
+          <div class="theater-header">
+            <span class="theater-title">🍿 BALAYYA SPECIAL BIRTHDAY THEATER</span>
+            <span class="theater-badge">NOW PLAYING</span>
+          </div>
+          <div class="video-card-wrapper">
+            <video 
+              id="final-wish-video" 
+              controls 
+              playsinline 
+              class="final-birthday-video" 
+              src="assets/birthday_wish_video.mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Interactive Birthday Cake & Candles -->
+        <div class="cake-celebration-area" style="margin-top: 16px;">
+          <p style="font-family: var(--font-title); font-size: 22px; color: var(--text-maroon); font-weight: 700; margin-bottom: 6px;">
+            MAKE A WISH 🎂✨
+          </p>
+          <div class="cake-container" id="interactive-cake" title="Click to blow out candles!">
+            <div id="cake-svg-wrapper" style="width: 240px; max-width: 85vw;">
+              <img src="assets/cake.svg" alt="Birthday Cake with Candles" id="cake-img" style="width: 100%;">
+            </div>
+          </div>
+
+          <div class="candle-instruction-badge" id="blow-candles-btn">
+            <span>🎂</span>
+            <span id="blow-status-text">Click Cake to Blow Out Candles!</span>
+            <span>💨</span>
+          </div>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div style="display: flex; justify-content: center; gap: 14px; margin-top: 16px; margin-bottom: 12px; z-index: 5;">
+          <button class="btn-red-pill" id="trigger-confetti-btn" style="font-size: 16px; padding: 8px 24px;">
+            🎊 More Confetti!
+          </button>
+          <button class="btn-red-pill" id="restart-from-end-btn" style="font-size: 16px; padding: 8px 24px; background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);">
+            🔄 Watch Again
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="confetti.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
