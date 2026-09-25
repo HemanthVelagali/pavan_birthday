@@ -136,19 +136,106 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. SLIDE 5: Avengers Wishes -> Final Video Page
+  // 5. SLIDE 5: Avengers Wishes & Interactive Hero Photo Switcher
   s5NextBtn?.addEventListener('click', () => {
     goToSlide(6); // Go to Final Video Slide!
   });
 
+  const heroData = {
+    pavan: {
+      src: 'assets/pawan_birthday.png',
+      alt: 'Happy Birthday Pavan!',
+      caption: '✨ Birthday Boy Pavan ✨'
+    },
+    ironman: {
+      src: 'assets/ironman.jpg',
+      alt: 'Tony Stark / Iron Man',
+      caption: '🔴 Tony Stark / Iron Man: I Love You 3000! 🤖'
+    },
+    captain: {
+      src: 'assets/captain.jpg',
+      alt: 'Steve Rogers / Captain America',
+      caption: '🔵 Steve Rogers / Captain America: Cap is Back! 🛡️'
+    },
+    thor: {
+      src: 'assets/thor.jpg',
+      alt: 'Thor / God of Thunder',
+      caption: '⚡ Thor / God of Thunder: For Valhalla! 🔨'
+    },
+    spiderman: {
+      src: 'assets/peter.jpg',
+      alt: 'Peter Parker / Spider-Man',
+      caption: '🕷️ Peter Parker / Spider-Man: Friendly Neighborhood Spidey! 🕸️'
+    },
+    hulk: {
+      src: 'assets/hulk.jpg',
+      alt: 'The Incredible Hulk',
+      caption: '🟢 The Incredible Hulk: Hulk Celebrate Pavan! 💥'
+    }
+  };
+
+  const photoFrameCaption = document.getElementById('photo-frame-caption');
+  const heroPillBtns = document.querySelectorAll('.hero-pill-btn');
+
+  function selectHero(heroKey) {
+    const data = heroData[heroKey];
+    if (!data || !avengersMainImg) return;
+
+    avengersMainImg.style.opacity = '0.25';
+    avengersMainImg.style.transform = 'scale(0.97)';
+    setTimeout(() => {
+      avengersMainImg.src = data.src;
+      avengersMainImg.alt = data.alt;
+      if (photoFrameCaption) {
+        photoFrameCaption.textContent = data.caption;
+      }
+      avengersMainImg.style.opacity = '1';
+      avengersMainImg.style.transform = 'scale(1)';
+    }, 150);
+
+    // Update active pill button
+    heroPillBtns.forEach(btn => {
+      if (btn.dataset.targetHero === heroKey) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Update active quote card
+    heroQuoteCards.forEach(card => {
+      if (card.dataset.hero === heroKey) {
+        card.classList.add('active-hero');
+      } else {
+        card.classList.remove('active-hero');
+      }
+    });
+  }
+
   heroQuoteCards.forEach((card) => {
     card.addEventListener('click', () => {
-      card.style.transform = 'scale(1.05) translateX(8px)';
-      card.style.borderColor = '#FFD54F';
-      setTimeout(() => {
-        card.style.transform = '';
-      }, 300);
+      const heroKey = card.dataset.hero;
+      if (card.classList.contains('active-hero')) {
+        selectHero('pavan');
+      } else {
+        selectHero(heroKey);
+      }
     });
+  });
+
+  heroPillBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const heroKey = btn.dataset.targetHero;
+      selectHero(heroKey);
+    });
+  });
+
+  const interactivePhotoFrame = document.getElementById('interactive-photo-frame');
+  interactivePhotoFrame?.addEventListener('click', () => {
+    const activePill = document.querySelector('.hero-pill-btn.active');
+    if (activePill && activePill.dataset.targetHero !== 'pavan') {
+      selectHero('pavan');
+    }
   });
 
 

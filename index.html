@@ -160,10 +160,21 @@
           </div>
 
           <div class="avengers-card-grid">
-            <!-- Left: Pavan's Birthday Polaroid Photo Card -->
-            <div class="avengers-photo-frame">
-              <div class="photo-tape"></div>
-              <img src="assets/pawan_birthday.png" alt="Happy Birthday Pavan!" id="avengers-main-img" class="avengers-photo-img">
+            <!-- Left: Pavan's Birthday Polaroid Photo Card & Interactive Hero Preview -->
+            <div class="avengers-photo-column">
+              <div class="avengers-photo-frame" id="interactive-photo-frame" title="Click to view / reset photo">
+                <div class="photo-tape"></div>
+                <img src="assets/pawan_birthday.png" alt="Happy Birthday Pavan!" id="avengers-main-img" class="avengers-photo-img">
+                <div class="photo-caption" id="photo-frame-caption">✨ Birthday Boy Pavan ✨</div>
+              </div>
+              <div class="hero-selector-pills">
+                <button class="hero-pill-btn active" data-target-hero="pavan">📸 Pavan</button>
+                <button class="hero-pill-btn" data-target-hero="ironman">🔴 Iron Man</button>
+                <button class="hero-pill-btn" data-target-hero="captain">🔵 Cap</button>
+                <button class="hero-pill-btn" data-target-hero="thor">⚡ Thor</button>
+                <button class="hero-pill-btn" data-target-hero="spiderman">🕷️ Peter</button>
+                <button class="hero-pill-btn" data-target-hero="hulk">🟢 Hulk</button>
+              </div>
             </div>
 
             <!-- Right: Superhero Wishes List -->
@@ -171,7 +182,7 @@
               <!-- Iron Man -->
               <div class="hero-quote-card" data-hero="ironman">
                 <div class="hero-avatar">
-                  <img src="./iron%20man.jpg" alt="Iron Man" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                  <img src="assets/ironman.jpg" alt="Tony Stark / Iron Man" class="avatar-ironman">
                 </div>
                 <div class="hero-info">
                   <div class="hero-name">TONY STARK / IRON MAN</div>
@@ -182,7 +193,7 @@
               <!-- Captain America -->
               <div class="hero-quote-card" data-hero="captain">
                 <div class="hero-avatar">
-                  <img src="./captain.jpg" alt="Captain America" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                  <img src="assets/captain.jpg" alt="Steve Rogers / Captain America" class="avatar-captain">
                 </div>
                 <div class="hero-info">
                   <div class="hero-name">STEVE ROGERS / CAPTAIN AMERICA</div>
@@ -193,7 +204,7 @@
               <!-- Thor -->
               <div class="hero-quote-card" data-hero="thor">
                 <div class="hero-avatar">
-                  <img src="./thor.jpg" alt="Thor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                  <img src="assets/thor.jpg" alt="Thor / God of Thunder" class="avatar-thor">
                 </div>
                 <div class="hero-info">
                   <div class="hero-name">THOR / GOD OF THUNDER</div>
@@ -201,10 +212,10 @@
                 </div>
               </div>
 
-              <!-- Spider-Man -->
+              <!-- Spider-Man (Peter Parker) -->
               <div class="hero-quote-card" data-hero="spiderman">
                 <div class="hero-avatar">
-                  <img src="./spider.jpg" alt="Spider-Man" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                  <img src="assets/peter.jpg" alt="Peter Parker / Spider-Man" class="avatar-spiderman">
                 </div>
                 <div class="hero-info">
                   <div class="hero-name">PETER PARKER / SPIDER-MAN</div>
@@ -215,7 +226,7 @@
               <!-- Hulk -->
               <div class="hero-quote-card" data-hero="hulk">
                 <div class="hero-avatar">
-                  <img src="./hulk.jpg" alt="Hulk" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                  <img src="assets/hulk.jpg" alt="The Incredible Hulk" class="avatar-hulk">
                 </div>
                 <div class="hero-info">
                   <div class="hero-name">THE INCREDIBLE HULK</div>

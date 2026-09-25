@@ -630,30 +630,44 @@ body {
   }
 }
 
-/* Framed Birthday Polaroid Photo */
+/* Framed Birthday Polaroid Photo & Superhero Showcase */
+.avengers-photo-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .avengers-photo-frame {
   position: relative;
   background: #FFFFFF;
-  padding: 8px;
+  padding: 10px 10px 14px;
   border-radius: 14px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
   transform: rotate(-1.5deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .avengers-photo-frame:hover {
   transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 179, 0, 0.3);
 }
 
 .avengers-photo-img {
   width: 100%;
-  max-height: clamp(350px, 52vh, 580px);
+  max-height: clamp(340px, 50vh, 540px);
   object-fit: contain;
   border-radius: 8px;
   display: block;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .photo-tape {
@@ -666,46 +680,138 @@ body {
   transform: rotate(-3deg);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 2px;
+  z-index: 3;
+}
+
+.photo-caption {
+  font-family: var(--font-handwriting);
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: #1A1A1A;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 700;
+  min-height: 26px;
+  letter-spacing: 0.5px;
+}
+
+/* Quick Hero Switcher Buttons under the Photo Frame */
+.hero-selector-pills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.hero-pill-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(4px);
+}
+
+.hero-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  border-color: var(--avengers-gold);
+}
+
+.hero-pill-btn.active {
+  background: linear-gradient(180deg, #FFB300 0%, #FFA000 100%);
+  color: #1A0D00;
+  border-color: #FFF;
+  box-shadow: 0 4px 14px rgba(255, 179, 0, 0.5);
+  transform: scale(1.05);
 }
 
 /* Individual superhero quote bubbles */
 .avengers-wishes-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hero-quote-card {
   background: rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--avengers-gold);
-  border-radius: 0 14px 14px 0;
-  padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.5vw, 18px);
+  border-left: 4.5px solid var(--avengers-gold);
+  border-radius: 0 16px 16px 0;
+  padding: clamp(10px, 1.3vh, 14px) clamp(12px, 1.6vw, 18px);
   display: flex;
   align-items: center;
   gap: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
   backdrop-filter: blur(4px);
 }
 
 .hero-quote-card:hover {
   background: rgba(255, 255, 255, 0.16);
-  transform: translateX(4px);
+  transform: translateX(6px) scale(1.01);
   border-left-color: #FF5252;
 }
 
+.hero-quote-card.active-hero {
+  background: rgba(255, 179, 0, 0.22);
+  border-left: 5.5px solid #FFD54F;
+  transform: translateX(8px);
+  box-shadow: 0 6px 18px rgba(255, 179, 0, 0.35);
+}
+
 .hero-avatar {
-  font-size: 26px;
-  background: rgba(0, 0, 0, 0.3);
-  width: clamp(40px, 3.8vw, 48px);
-  height: clamp(40px, 3.8vw, 48px);
+  background: rgba(0, 0, 0, 0.4);
+  width: clamp(48px, 4.4vw, 58px);
+  height: clamp(48px, 4.4vw, 58px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2.5px solid var(--avengers-gold);
   flex-shrink: 0;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-quote-card:hover .hero-avatar {
+  transform: scale(1.08);
+  border-color: #FFF;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Precise face focal point cropping for each hero portrait */
+.hero-avatar img.avatar-ironman {
+  object-position: 50% 12%;
+}
+
+.hero-avatar img.avatar-captain {
+  object-position: 50% 8%;
+}
+
+.hero-avatar img.avatar-thor {
+  object-position: 50% 8%;
+}
+
+.hero-avatar img.avatar-spiderman {
+  object-position: 50% 16%;
+}
+
+.hero-avatar img.avatar-hulk {
+  object-position: 50% 14%;
 }
 
 .hero-info {
