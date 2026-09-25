@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- State ---
   let currentSlide = 1;
   const totalSlides = 6;
-  let candlesBlown = false;
 
   // --- Slide Elements ---
   const slides = document.querySelectorAll('.slide');
