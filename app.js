@@ -154,24 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Upload/Change Photo handler
-  uploadPhotoBtn?.addEventListener('click', () => {
-    userPhotoInput?.click();
-  });
 
-  userPhotoInput?.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const result = event.target.result;
-        avengersMainImg.src = result;
-        localStorage.setItem('shinchan_birthday_photo', result);
-        window.confettiEngine?.burst(window.innerWidth / 2, window.innerHeight / 2, 60);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
 
   // 6. SLIDE 6: Cake & Candle Blowout on Final Page
   function blowCandles() {
