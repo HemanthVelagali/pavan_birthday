@@ -239,16 +239,22 @@
          SLIDE 6: THE FINAL PAGE - Separate Cinema Video Player & Cake
          ==================================================================== -->
     <section class="slide" id="slide-6" data-slide="6">
-      <div class="slide-waves-theme">
+      <div class="slide-waves-theme slide-final-screen">
         <svg class="wavy-corner-top-left" viewBox="0 0 200 200">
           <path d="M0 0 L160 0 C120 40 140 100 80 120 C40 130 20 160 0 180 Z" fill="#6B1E1E" opacity="0.85" />
+          <path d="M0 0 L120 0 C90 30 100 80 50 100 C20 110 10 140 0 150 Z" fill="#E53935" opacity="0.6" />
+        </svg>
+
+        <svg class="wavy-corner-bottom-right" viewBox="0 0 200 200">
+          <path d="M200 200 L40 200 C80 160 60 100 120 80 C160 70 180 40 200 20 Z" fill="#6B1E1E" opacity="0.85" />
+          <path d="M200 200 L80 200 C110 170 100 120 150 100 C180 90 190 60 200 50 Z" fill="#E53935" opacity="0.6" />
         </svg>
 
         <div class="celebration-header-box">
-          <h2 class="slide-title-arched" style="font-size: 34px; margin-bottom: 2px;">
+          <h2 class="slide-title-arched" style="font-size: clamp(28px, 3.8vw, 44px); margin-bottom: 4px;">
             SPECIAL BIRTHDAY WISH FOR PAVAN! 🎬🔥
           </h2>
-          <p class="wish-paragraph" style="font-size: 18px;">
+          <p class="wish-paragraph" style="font-size: clamp(16px, 2vw, 22px);">
             Wait for it... direct from Balayya &amp; friends! 🤣🎂
           </p>
         </div>
@@ -270,30 +276,12 @@
           </div>
         </div>
 
-        <!-- Interactive Birthday Cake & Candles -->
-        <div class="cake-celebration-area" style="margin-top: 16px;">
-          <p style="font-family: var(--font-title); font-size: 22px; color: var(--text-maroon); font-weight: 700; margin-bottom: 6px;">
-            MAKE A WISH 🎂✨
-          </p>
-          <div class="cake-container" id="interactive-cake" title="Click to blow out candles!">
-            <div id="cake-svg-wrapper" style="width: 240px; max-width: 85vw;">
-              <img src="assets/cake.svg" alt="Birthday Cake with Candles" id="cake-img" style="width: 100%;">
-            </div>
-          </div>
-
-          <div class="candle-instruction-badge" id="blow-candles-btn">
-            <span>🎂</span>
-            <span id="blow-status-text">Click Cake to Blow Out Candles!</span>
-            <span>💨</span>
-          </div>
-        </div>
-
         <!-- Bottom Actions -->
-        <div style="display: flex; justify-content: center; gap: 14px; margin-top: 16px; margin-bottom: 12px; z-index: 5;">
-          <button class="btn-red-pill" id="trigger-confetti-btn" style="font-size: 16px; padding: 8px 24px;">
+        <div class="theater-actions-row">
+          <button class="btn-red-pill" id="trigger-confetti-btn">
             🎊 More Confetti!
           </button>
-          <button class="btn-red-pill" id="restart-from-end-btn" style="font-size: 16px; padding: 8px 24px; background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);">
+          <button class="btn-red-pill replay-action-btn" id="restart-from-end-btn">
             🔄 Watch Again
           </button>
         </div>

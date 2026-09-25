@@ -33,27 +33,26 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #201717;
+  background-color: var(--cream-bg);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+  min-height: 100dvh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   color: var(--text-dark);
 }
 
 .dual-gif-wrapper {
   display: flex;
-  gap: 16px;
+  gap: clamp(12px, 3vw, 32px);
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
 .dual-gif-wrapper .shinchan-img {
-  max-height: 200px;
+  max-height: clamp(160px, 32vh, 340px);
   max-width: 48%;
   object-fit: contain;
 }
@@ -63,7 +62,7 @@ body {
     gap: 8px;
   }
   .dual-gif-wrapper .shinchan-img {
-    max-height: 160px;
+    max-height: clamp(140px, 28vh, 220px);
     max-width: 48%;
   }
 }
@@ -94,37 +93,34 @@ body {
   transform: translateY(1px) scale(0.98);
 }
 
-/* Slide Deck Wrapper */
+/* Slide Deck Wrapper - FULL SCREEN */
 .presentation-container {
-  width: 100%;
-  max-width: 860px;
-  aspect-ratio: 16 / 9.6;
-  min-height: 480px;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   position: relative;
-  border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 768px) {
-  .presentation-container {
-    aspect-ratio: auto;
-    min-height: 580px;
-    border-radius: 20px;
-  }
+  margin: 0;
+  padding: 0;
 }
 
 /* Slide Item */
 .slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.96) translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  transform: scale(0.98);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -132,53 +128,58 @@ body {
 .slide.active {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
   z-index: 10;
 }
 
 /* ==========================================================================
-   Canva Gingham Checkered Frame & Inner Card
+   Canva Gingham Checkered Frame & Inner Card - Full Screen Canvas
    ========================================================================== */
 
 .gingham-frame {
   width: 100%;
+  min-height: 100%;
   height: 100%;
-  padding: 16px;
+  padding: clamp(12px, 2.5vw, 28px);
   /* Authentic Red & White Gingham Tablecloth Pattern */
   background-color: #FFFFFF;
   background-image: 
     linear-gradient(90deg, rgba(211, 47, 47, 0.45) 50%, transparent 50%),
     linear-gradient(rgba(211, 47, 47, 0.45) 50%, transparent 50%);
-  background-size: 26px 26px;
+  background-size: 28px 28px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 @media (max-width: 600px) {
   .gingham-frame {
-    padding: 10px;
+    padding: 8px;
     background-size: 20px 20px;
   }
 }
 
 .inner-card {
   width: 100%;
+  max-width: 1350px;
   height: 100%;
+  min-height: 100%;
   background-color: var(--cream-bg);
-  border-radius: 24px;
-  border: 3px solid var(--card-border);
+  border-radius: 28px;
+  border: 4px solid var(--card-border);
   box-shadow: 
-    inset 0 0 20px rgba(107, 30, 30, 0.05),
-    0 10px 25px rgba(0, 0, 0, 0.15);
+    inset 0 0 25px rgba(107, 30, 30, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 20px 20px;
+  padding: clamp(20px, 3.5vh, 44px) clamp(16px, 3.5vw, 44px);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Scalloped / Organic Wavy Border Illusion inside card */
@@ -207,7 +208,7 @@ body {
 
 .slide-title-arched {
   font-family: var(--font-title);
-  font-size: 38px;
+  font-size: clamp(28px, 4.2vw, 54px);
   font-weight: 800;
   color: var(--text-maroon);
   text-align: center;
@@ -216,7 +217,7 @@ body {
   text-shadow: 1px 2px 0px rgba(255, 255, 255, 0.8);
   position: relative;
   z-index: 2;
-  transform: perspective(300px) rotateX(4deg);
+  transform: perspective(300px) rotateX(3deg);
 }
 
 @media (max-width: 600px) {
@@ -228,11 +229,11 @@ body {
 
 .slide-subtitle {
   font-family: var(--font-title);
-  font-size: 28px;
+  font-size: clamp(22px, 2.8vw, 38px);
   font-weight: 700;
   color: var(--text-maroon);
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: clamp(8px, 1.6vh, 18px);
   position: relative;
   z-index: 2;
 }
@@ -255,15 +256,16 @@ body {
   align-items: center;
   position: relative;
   z-index: 2;
-  max-height: 260px;
-  margin: 4px 0;
+  width: 100%;
+  max-height: 48vh;
+  margin: 6px 0;
 }
 
 .shinchan-img {
-  max-height: 230px;
+  max-height: clamp(200px, 38vh, 420px);
   max-width: 85%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 15px rgba(107, 30, 30, 0.15));
+  filter: drop-shadow(0 12px 20px rgba(107, 30, 30, 0.18));
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   animation: float-gentle 3.5s ease-in-out infinite;
 }
@@ -297,12 +299,12 @@ body {
 
 .btn-group {
   display: flex;
-  gap: 24px;
+  gap: clamp(16px, 3vw, 36px);
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 2;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 500px) {
@@ -316,11 +318,11 @@ body {
   background: linear-gradient(180deg, var(--btn-red-start) 0%, var(--btn-red-end) 100%);
   color: #FFFFFF;
   font-family: var(--font-body);
-  font-size: 26px;
+  font-size: clamp(20px, 2.2vw, 30px);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 10px 42px;
+  padding: clamp(10px, 1.4vh, 16px) clamp(30px, 3.5vw, 60px);
   border-radius: 9999px;
   border: 3.5px solid #FFFFFF;
   box-shadow: 
@@ -362,8 +364,8 @@ body {
 
 @media (max-width: 600px) {
   .btn-red-pill {
-    font-size: 20px;
-    padding: 8px 30px;
+    font-size: 18px;
+    padding: 8px 26px;
   }
 }
 
@@ -375,8 +377,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
-  margin: 12px 0 16px;
+  gap: clamp(20px, 4.5vw, 60px);
+  margin: clamp(12px, 2.5vh, 28px) 0;
   width: 100%;
 }
 
@@ -404,10 +406,10 @@ body {
 }
 
 .gift-box-svg {
-  width: 120px;
-  height: 120px;
+  width: clamp(110px, 14vw, 200px);
+  height: clamp(110px, 14vw, 200px);
   transition: transform 0.4s ease;
-  filter: drop-shadow(0 8px 12px rgba(107, 30, 30, 0.2));
+  filter: drop-shadow(0 10px 16px rgba(107, 30, 30, 0.22));
 }
 
 @media (max-width: 600px) {
@@ -420,12 +422,12 @@ body {
 .gift-label {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(14px, 1.5vw, 20px);
   color: var(--text-maroon);
   background: #FFF;
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: 9999px;
-  margin-top: 6px;
+  margin-top: 8px;
   border: 1.5px solid var(--text-maroon);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -475,14 +477,21 @@ body {
   background: #FDF9F3;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 20px;
-  border: 3px solid var(--card-border);
-  border-radius: 24px;
+  padding: clamp(20px, 3.5vw, 40px);
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.slide-waves-theme.slide-final-screen {
+  justify-content: center;
+  align-items: center;
 }
 
 /* Retro decorative waves border */
@@ -490,8 +499,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 180px;
-  height: 180px;
+  width: clamp(140px, 16vw, 240px);
+  height: clamp(140px, 16vw, 240px);
   pointer-events: none;
   opacity: 0.85;
 }
@@ -500,8 +509,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 180px;
-  height: 180px;
+  width: clamp(140px, 16vw, 240px);
+  height: clamp(140px, 16vw, 240px);
   pointer-events: none;
   opacity: 0.85;
 }
@@ -515,7 +524,7 @@ body {
 
 .happy-sub {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 700;
   letter-spacing: 3px;
   color: var(--text-maroon);
@@ -524,7 +533,7 @@ body {
 
 .birthday-main {
   font-family: var(--font-script);
-  font-size: 46px;
+  font-size: clamp(42px, 6vw, 76px);
   font-weight: 700;
   color: var(--text-maroon);
   line-height: 1.1;
@@ -539,9 +548,9 @@ body {
 
 .wish-paragraph {
   font-family: var(--font-handwriting);
-  font-size: 22px;
+  font-size: clamp(18px, 2.2vw, 26px);
   color: #4A1A1A;
-  max-width: 540px;
+  max-width: 700px;
   margin: 6px auto;
   line-height: 1.3;
 }
@@ -551,11 +560,11 @@ body {
   background: var(--text-maroon);
   color: #FFF;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 700;
   letter-spacing: 1px;
-  padding: 4px 22px;
-  border-radius: 4px;
+  padding: 6px 28px;
+  border-radius: 6px;
   position: relative;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(99, 24, 24, 0.3);
@@ -567,38 +576,41 @@ body {
 }
 
 /* ==========================================================================
-   THE AVENGERS WISHES SHOWCASE
+   THE AVENGERS WISHES SHOWCASE - Full Screen Responsive
    ========================================================================== */
 
 .avengers-showcase {
   background: linear-gradient(135deg, #0d131f 0%, #17263c 100%);
   border: 3.5px solid var(--avengers-gold);
-  border-radius: 20px;
-  padding: 18px;
-  margin: 16px 0;
+  border-radius: 24px;
+  padding: clamp(16px, 2.5vw, 32px);
+  margin: 16px auto;
+  width: 100%;
+  max-width: 1300px;
   box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(255, 179, 0, 0.25);
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(255, 179, 0, 0.25);
   position: relative;
   z-index: 2;
   color: #FFFFFF;
+  box-sizing: border-box;
 }
 
 .avengers-title-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .avengers-badge {
   background: #E53935;
   color: #FFFFFF;
   font-family: var(--font-comic);
-  font-size: 22px;
+  font-size: clamp(20px, 2.5vw, 28px);
   letter-spacing: 1.5px;
-  padding: 4px 16px;
+  padding: 4px 20px;
   border-radius: 8px;
   border: 2px solid #FFF;
   text-shadow: 1px 1px 0 #000;
@@ -607,12 +619,12 @@ body {
 
 .avengers-card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(20px, 3vw, 40px);
   align-items: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   .avengers-card-grid {
     grid-template-columns: 1fr;
   }
@@ -622,9 +634,9 @@ body {
 .avengers-photo-frame {
   position: relative;
   background: #FFFFFF;
-  padding: 6px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  padding: 8px;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
   transform: rotate(-1.5deg);
   transition: transform 0.3s ease;
   display: flex;
@@ -638,7 +650,7 @@ body {
 
 .avengers-photo-img {
   width: 100%;
-  max-height: 400px;
+  max-height: clamp(350px, 52vh, 580px);
   object-fit: contain;
   border-radius: 8px;
   display: block;
@@ -656,15 +668,6 @@ body {
   border-radius: 2px;
 }
 
-.photo-caption {
-  font-family: var(--font-handwriting);
-  font-size: 22px;
-  color: #1A1A1A;
-  text-align: center;
-  margin-top: 8px;
-  font-weight: 700;
-}
-
 /* Individual superhero quote bubbles */
 .avengers-wishes-list {
   display: flex;
@@ -675,11 +678,11 @@ body {
 .hero-quote-card {
   background: rgba(255, 255, 255, 0.08);
   border-left: 4px solid var(--avengers-gold);
-  border-radius: 0 12px 12px 0;
-  padding: 8px 12px;
+  border-radius: 0 14px 14px 0;
+  padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.5vw, 18px);
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(4px);
@@ -692,16 +695,17 @@ body {
 }
 
 .hero-avatar {
-  font-size: 24px;
+  font-size: 26px;
   background: rgba(0, 0, 0, 0.3);
-  width: 38px;
-  height: 38px;
+  width: clamp(40px, 3.8vw, 48px);
+  height: clamp(40px, 3.8vw, 48px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .hero-info {
@@ -709,7 +713,7 @@ body {
 }
 
 .hero-name {
-  font-size: 13px;
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 700;
   color: var(--avengers-gold);
   letter-spacing: 0.5px;
@@ -717,146 +721,100 @@ body {
 }
 
 .hero-quote {
-  font-size: 13px;
-  line-height: 1.3;
-  color: #E0E0E0;
+  font-size: clamp(12px, 1.05vw, 14.5px);
+  line-height: 1.35;
+  color: #E8E8E8;
   font-style: italic;
 }
 
 /* ==========================================================================
-   Slide 6: Birthday Cake & Interactive Candle Blow
-   ========================================================================== */
-
-.cake-celebration-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  margin: 10px 0;
-}
-
-.cake-container {
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.25s ease;
-}
-
-.cake-container:hover {
-  transform: scale(1.04);
-}
-
-.flame-element {
-  transform-origin: center bottom;
-  animation: flicker 0.6s infinite alternate ease-in-out;
-}
-
-@keyframes flicker {
-  0% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 6px #FFA000); }
-  50% { transform: scale(1.15) rotate(2deg); filter: drop-shadow(0 0 14px #FFD54F); }
-  100% { transform: scale(0.95) rotate(-1deg); filter: drop-shadow(0 0 8px #FF6F00); }
-}
-
-.flame-blown {
-  display: none !important;
-}
-
-.smoke-puff {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  animation: rise-smoke 1.2s forwards ease-out;
-}
-
-@keyframes rise-smoke {
-  0% { opacity: 0.9; transform: translateX(-50%) translateY(0) scale(0.6); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-60px) scale(2); }
-}
-
-.candle-instruction-badge {
-  background: #FFF;
-  border: 2px solid var(--text-maroon);
-  color: var(--text-maroon);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 6px 18px;
-  border-radius: 9999px;
-  margin-top: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  animation: bounce-subtle 2s infinite ease-in-out;
-}
-
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-/* ==========================================================================
-   Separate Cinema Video Player
+   Slide 6: Grand Cinema Theater Video Player
    ========================================================================== */
 
 .theater-container {
   width: 100%;
-  max-width: 520px;
-  margin: 8px auto 14px;
+  max-width: 920px;
+  margin: 14px auto;
   background: linear-gradient(180deg, #1A1111 0%, #0D0808 100%);
-  border: 3.5px solid var(--avengers-gold);
-  border-radius: 22px;
-  padding: 12px;
+  border: 4px solid var(--avengers-gold);
+  border-radius: 24px;
+  padding: clamp(12px, 2vw, 22px);
   box-shadow: 
-    0 20px 45px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(255, 179, 0, 0.35);
+    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(255, 179, 0, 0.4);
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 .theater-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 8px 8px;
-  border-bottom: 1.5px solid rgba(255, 179, 0, 0.3);
-  margin-bottom: 10px;
+  padding: 4px 8px 10px;
+  border-bottom: 2px solid rgba(255, 179, 0, 0.35);
+  margin-bottom: 12px;
 }
 
 .theater-title {
   font-family: var(--font-comic);
   color: var(--avengers-gold);
-  font-size: 18px;
+  font-size: clamp(16px, 2.2vw, 24px);
   letter-spacing: 1px;
 }
 
 .theater-badge {
   background: #E53935;
   color: #FFF;
-  font-size: 11px;
+  font-size: clamp(11px, 1.2vw, 14px);
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
+  padding: 3px 10px;
+  border-radius: 6px;
   text-transform: uppercase;
 }
 
 .video-card-wrapper {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .final-birthday-video {
   width: 100%;
-  max-height: 420px;
+  max-height: clamp(380px, 58vh, 620px);
   display: block;
   object-fit: contain;
   background: #000;
+}
+
+.theater-actions-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  margin-top: 20px;
+  margin-bottom: 16px;
+  z-index: 5;
+  flex-wrap: wrap;
+}
+
+.replay-action-btn {
+  background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%) !important;
+  box-shadow: 
+    0 6px 14px rgba(46, 125, 50, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.replay-action-btn:hover {
+  box-shadow: 
+    0 10px 20px rgba(46, 125, 50, 0.55),
+    0 3px 6px rgba(0, 0, 0, 0.25),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 

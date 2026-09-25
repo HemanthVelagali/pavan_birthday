@@ -31,11 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const userPhotoInput = document.getElementById('user-photo-input');
   const avengersMainImg = document.getElementById('avengers-main-img');
 
-  // Slide 6 Video & Cake
+  // Slide 6 Video & Actions
   const finalVideo = document.getElementById('final-wish-video');
-  const interactiveCake = document.getElementById('interactive-cake');
-  const blowCandlesBtn = document.getElementById('blow-candles-btn');
-  const blowStatusText = document.getElementById('blow-status-text');
   const triggerConfettiBtn = document.getElementById('trigger-confetti-btn');
   const restartFromEndBtn = document.getElementById('restart-from-end-btn');
 
@@ -156,50 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // 6. SLIDE 6: Cake & Candle Blowout on Final Page
-  function blowCandles() {
-    if (candlesBlown) {
-      candlesBlown = false;
-      blowStatusText.textContent = 'Click Cake to Blow Out Candles!';
-      const cakeImg = document.getElementById('cake-img');
-      if (cakeImg) cakeImg.style.filter = '';
-      return;
-    }
-
-    candlesBlown = true;
-
-    // Smoke puff animation
-    const cakeWrapper = document.getElementById('cake-svg-wrapper');
-    if (cakeWrapper) {
-      const smoke = document.createElement('div');
-      smoke.className = 'smoke-puff';
-      smoke.innerHTML = `
-        <svg width="80" height="80" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="30" fill="rgba(200, 200, 200, 0.7)" filter="blur(8px)"/>
-        </svg>
-      `;
-      cakeWrapper.appendChild(smoke);
-      setTimeout(() => smoke.remove(), 1200);
-    }
-
-    const cakeImg = document.getElementById('cake-img');
-    if (cakeImg) cakeImg.style.filter = 'drop-shadow(0 0 20px rgba(0,0,0,0.2))';
-
-    // Massive Confetti
-    setTimeout(() => {
-      window.confettiEngine?.burst(window.innerWidth * 0.5, window.innerHeight * 0.4, 140);
-      window.confettiEngine?.burst(window.innerWidth * 0.2, window.innerHeight * 0.5, 60);
-      window.confettiEngine?.burst(window.innerWidth * 0.8, window.innerHeight * 0.5, 60);
-    }, 250);
-
-    blowStatusText.innerHTML = '✨ WISH GRANTED! Happy Birthday! 💖';
-    blowCandlesBtn.style.background = '#E8F5E9';
-    blowCandlesBtn.style.borderColor = '#4CAF50';
-    blowCandlesBtn.style.color = '#2E7D32';
-  }
-
-  interactiveCake?.addEventListener('click', blowCandles);
-  blowCandlesBtn?.addEventListener('click', blowCandles);
+  // 6. SLIDE 6: Actions on Final Video Page
 
   triggerConfettiBtn?.addEventListener('click', () => {
     window.confettiEngine?.burst(window.innerWidth / 2, window.innerHeight / 2, 100);
